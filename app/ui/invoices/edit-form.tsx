@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useActionState } from "react";
 import { CustomerField, InvoiceForm } from "@/app/lib/definitions";
 import { updateInvoice, State } from "@/app/lib/actions";
@@ -20,9 +21,9 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
   const initialState: State = { message: null, errors: {} };
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id as any);
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const [state, formAction] = useActionState(
-    updateInvoiceWithId as any,
+    updateInvoiceWithId,
     initialState
   );
 
